@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom 80s Retro Bio Styles */
+:root {
+  --bio-green: #00ff88;
+  --bio-lime: #88ff00;
+  --bio-emerald: #00cc66;
+  --bio-amber: #ffaa00;
+  --bio-mint: #66ffcc;
+  --retro-black: #000000;
+  --retro-dark: #0a0a0a;
+  --lab-beige: #f5e6d3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: var(--retro-black);
+  color: var(--bio-green);
+  overflow-x: hidden;
+}
+
+/* Organic Pattern Background */
+.organic-background {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(136, 255, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(0, 204, 102, 0.05) 0%, transparent 50%);
+  background-size: 400px 400px, 600px 600px, 500px 500px;
+  animation: organicFlow 30s ease-in-out infinite;
+}
+
+@keyframes organicFlow {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 80% 20%;
+  }
+}
+
+/* DNA Helix Animation */
+.dna-helix {
+  background: transparent;
+  overflow: hidden;
+}
+
+.dna-helix::before,
+.dna-helix::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 50px,
+      rgba(0, 255, 136, 0.03) 50px,
+      rgba(0, 255, 136, 0.03) 52px
+    );
+  animation: helixRotate 20s linear infinite;
+}
+
+.dna-helix::after {
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 50px,
+      rgba(136, 255, 0, 0.03) 50px,
+      rgba(136, 255, 0, 0.03) 52px
+    );
+  animation-direction: reverse;
+}
+
+@keyframes helixRotate {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+/* CRT Screen Effect */
+.crt-screen {
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Scanlines */
+.scanlines {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 255, 0.03) 51%,
+    transparent 52%
+  );
+  background-size: 100% 4px;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Retro Text */
+.retro-text {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--bio-green);
+  text-shadow:
+    0 0 10px var(--bio-green),
+    0 0 20px var(--bio-green),
+    0 0 30px var(--bio-emerald);
+  letter-spacing: 2px;
+}
+
+/* Bio Text */
+.bio-text {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--bio-lime);
+  text-shadow:
+    0 0 10px var(--bio-lime),
+    0 0 20px var(--bio-lime),
+    0 0 30px var(--bio-green),
+    0 0 40px var(--bio-emerald);
+  animation: bioGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes bioGlow {
+  0% {
+    text-shadow:
+      0 0 10px var(--bio-lime),
+      0 0 20px var(--bio-lime),
+      0 0 30px var(--bio-green);
+  }
+  100% {
+    text-shadow:
+      0 0 20px var(--bio-lime),
+      0 0 30px var(--bio-lime),
+      0 0 40px var(--bio-green),
+      0 0 50px var(--bio-emerald);
+  }
+}
+
+/* Pulse Glow Effect */
+.pulse-glow {
+  animation: pulseGlow 1s ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px var(--bio-green),
+      0 0 20px var(--bio-green),
+      0 0 30px var(--bio-emerald);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 20px var(--bio-green),
+      0 0 40px var(--bio-green),
+      0 0 60px var(--bio-emerald),
+      0 0 80px var(--bio-lime);
+    transform: scale(1.05);
+  }
+}
+
+/* Retro Box */
+.retro-box {
+  background: rgba(0, 0, 0, 0.85);
+  border: 3px solid var(--bio-green);
+  box-shadow:
+    0 0 10px var(--bio-green),
+    inset 0 0 10px rgba(0, 255, 136, 0.15);
+  animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow:
+      0 0 10px var(--bio-green),
+      inset 0 0 10px rgba(0, 255, 136, 0.15);
+  }
+  100% {
+    box-shadow:
+      0 0 20px var(--bio-green),
+      0 0 30px var(--bio-emerald),
+      inset 0 0 20px rgba(0, 255, 136, 0.25);
+  }
+}
+
+/* Retro Buttons */
+.retro-button {
+  background: transparent;
+  border: 2px solid var(--bio-green);
+  color: var(--bio-green);
+  padding: 8px 16px;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--bio-green);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.retro-button:hover::before,
+.retro-button.active::before {
+  left: 0;
+}
+
+.retro-button:hover,
+.retro-button.active {
+  color: var(--retro-black);
+  box-shadow:
+    0 0 10px var(--bio-green),
+    0 0 20px var(--bio-green);
+}
+
+.retro-button-large {
+  background: transparent;
+  border: 3px solid var(--bio-lime);
+  color: var(--bio-lime);
+  padding: 16px 32px;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.retro-button-large::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--bio-lime);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.retro-button-large:hover::before {
+  left: 0;
+}
+
+.retro-button-large:hover {
+  color: var(--retro-black);
+  box-shadow:
+    0 0 20px var(--bio-lime),
+    0 0 30px var(--bio-lime),
+    0 0 40px var(--bio-green);
+  transform: scale(1.05);
+}
+
+/* Skill Tags */
+.skill-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: transparent;
+  border: 2px solid var(--bio-emerald);
+  color: var(--bio-mint);
+  font-family: 'Press Start 2P', cursive;
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: var(--bio-emerald);
+  color: var(--retro-black);
+  box-shadow:
+    0 0 10px var(--bio-emerald),
+    0 0 20px var(--bio-green);
+  transform: translateY(-2px);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Style */
+::selection {
+  background: var(--bio-green);
+  color: var(--retro-black);
+}
+
+::-moz-selection {
+  background: var(--bio-green);
+  color: var(--retro-black);
+}
+
+/* Slow Spin Animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
